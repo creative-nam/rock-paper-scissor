@@ -92,3 +92,7 @@ function isRock(parameter) {
 function isScissor(parameter) {
     return (parameter === 'scissor')
 }
+
+function capitalize(string) {
+    return string[0].toUpperCase() + string.slice(1)
+}
