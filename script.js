@@ -32,3 +32,63 @@ function computerPlay() {
 
 const playerSelection =  playerPlay()
 const computerSelection = computerPlay()
+
+function getRock(player, computer) {
+    if (isRock(player) || isRock(computer)) {
+        if (isRock(player) && isRock(computer)) {
+            return ['player', 'computer']
+        }
+
+        else if (isRock(player)) {
+            return ['player']
+        }
+
+        else {
+            return ['computer']
+        }
+    }
+}
+
+function getPaper(player, computer) {
+    if (isPaper(player) || isPaper(computer)) {
+        if (isPaper(player) && isPaper(computer)) {
+            return ['player', 'computer']
+        }
+
+        else if (isPaper(player)) {
+            return ['player']
+        }
+
+        else {
+            return ['computer']
+        }
+    }    
+}
+
+function getScissor(player, computer) {
+    if (isScissor(player) || isScissor(computer)) {
+        if (isScissor(player) && isScissor(computer)) {
+            return ['player', 'computer']
+        }
+
+        else if (isScissor(player)) {
+            return ['player']
+        }
+
+        else {
+            return ['computer']
+        }
+    }
+}
+
+function isPaper(parameter) {
+    return (parameter === 'paper')
+}
+
+function isRock(parameter) {
+    return (parameter === 'rock')
+}
+
+function isScissor(parameter) {
+    return (parameter === 'scissor')
+}
