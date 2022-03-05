@@ -96,3 +96,41 @@ function isScissor(parameter) {
 function capitalize(string) {
     return string[0].toUpperCase() + string.slice(1)
 }
+
+function whoPlayedWhat(player = playerSelection, computer = computerSelection) {
+    return `You played ${player}; the computer played ${computer}!`
+}
+
+function  whoWon(player = playerSelection, computer = computerSelection) {
+    if (player === computer) {
+        return `It's a tie.`
+    }
+
+    function declaration(winner, loser, player) {
+        return `${winner} beats ${loser}. ${capitalize(player)} wins!`
+    }
+
+    let rock, paper, scissor
+    
+    rock = getRock(player, computer)
+
+    paper =  getPaper(player, computer)
+    
+    scissor = getScissor(player, computer)
+    
+    if (rock) {
+        if (paper) {
+            return declaration('Paper', 'Rock', paper[0])
+        }
+
+        else if (scissor) {
+            return declaration('Rock', 'Scissor', rock[0])
+        }
+    }
+
+    else if (paper) {
+        if (scissor) {
+            return declaration('Scissor', 'Paper', scissor[0])
+        }
+    }  
+}
