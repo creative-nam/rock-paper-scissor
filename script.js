@@ -1,0 +1,1 @@
+console.log('Hello! Welcome to the rock -> paper -> scissors game')
