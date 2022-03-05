@@ -29,3 +29,6 @@ function computerPlay() {
 
     return convertMove(move)
 }
+
+const playerSelection =  playerPlay()
+const computerSelection = computerPlay()
