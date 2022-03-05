@@ -134,3 +134,15 @@ function  whoWon(player = playerSelection, computer = computerSelection) {
         }
     }  
 }
+
+function play() {
+    return `
+    ${whoPlayedWhat()} 
+    ${whoWon()}
+    --------------End--------------
+
+    (refresh the page to play again)
+    ` 
+}
+
+console.log(play())
