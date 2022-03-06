@@ -30,7 +30,7 @@ function computerPlay() {
     return convertMove(move)
 }
 
-const playerSelection =  playerPlay()
+//const playerSelection =  playerPlay()
 const computerSelection = computerPlay()
 
 function getRock(player, computer) {

@@ -5,3 +5,9 @@ body {
     display: flex;
     flex-direction: column;
   }
+
+  header {
+    background-color: #023047;
+    color: #FFB703;
+    text-align: center;
+  }
