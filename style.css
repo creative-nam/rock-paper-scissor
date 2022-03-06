@@ -48,3 +48,30 @@ button:hover {
   background-color: #006baa;
   cursor: pointer;
 }
+
+footer {
+  background-color: #8ECAE6;
+  color: #f58a07;
+  padding: 10px;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1em;
+}
+
+li {
+  margin: 10px 0;
+}
+
+li a {
+  color: black;  
+}
+
+li a:hover {
+  color: #f58a07;
+}
