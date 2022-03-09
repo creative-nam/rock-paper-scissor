@@ -15,19 +15,10 @@ function convertMove(move) {
     }
 }
 
-function playerPlay() {
-    let move = parseInt(prompt(`Insert the the number for the move you wish to make:
-            [1] Rock
-            [2] Paper
-            [3] Scissors`, 1))
-
-    return convertMove(move)
-}
-
 function computerPlay() {
     let move = parseInt(Math.random() * 3) + 1
 
-    return convertMove(move)
+    return move
 }
 
 //const playerSelection =  playerPlay()
