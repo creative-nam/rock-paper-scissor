@@ -26,62 +26,36 @@ const computerSelection = computerPlay()
 
 function getRock(player, computer) {
     if (isRock(player) || isRock(computer)) {
-        if (isRock(player) && isRock(computer)) {
-            return ['player', 'computer']
-        }
-
-        else if (isRock(player)) {
-            return ['player']
-        }
-
-        else {
-            return ['computer']
+        if (isPaper(player) || isScissor(computer)) {
+            return ((isScissor(player))? 4 : 5)            
         }
     }
 }
 
 function getPaper(player, computer) {
     if (isPaper(player) || isPaper(computer)) {
-        if (isPaper(player) && isPaper(computer)) {
-            return ['player', 'computer']
-        }
-
-        else if (isPaper(player)) {
-            return ['player']
-        }
-
-        else {
-            return ['computer']
+        if (isPaper(player) || isScissor(computer)) {
+            return ((isScissor(player))? 4 : 5)             
         }
     }    
 }
 
 function getScissor(player, computer) {
     if (isScissor(player) || isScissor(computer)) {
-        if (isScissor(player) && isScissor(computer)) {
-            return ['player', 'computer']
-        }
-
-        else if (isScissor(player)) {
-            return ['player']
-        }
-
-        else {
-            return ['computer']
-        }
+        return ((isScissor(player))? 4 : 5)         
     }
 }
 
-function isPaper(parameter) {
-    return (parameter === 'paper')
+function isPaper(param) {
+    return (param === 1)
 }
 
-function isRock(parameter) {
-    return (parameter === 'rock')
+function isRock(param) {
+    return (param === 2)
 }
 
-function isScissor(parameter) {
-    return (parameter === 'scissor')
+function isScissor(param) {
+    return (param === 3)
 }
 
 function capitalize(string) {
