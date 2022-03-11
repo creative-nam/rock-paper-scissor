@@ -68,11 +68,7 @@ function whoPlayedWhat(player = playerSelection, computer = computerSelection) {
 
 function  whoWon(player = playerSelection, computer = computerSelection) {
     if (player === computer) {
-        return `It's a tie.`
-    }
-
-    function declaration(winner, loser, player) {
-        return `${winner} beats ${loser}. ${capitalize(player)} wins!`
+        return 0
     }
 
     let rock, paper, scissor
@@ -85,17 +81,17 @@ function  whoWon(player = playerSelection, computer = computerSelection) {
     
     if (rock) {
         if (paper) {
-            return declaration('Paper', 'Rock', paper[0])
+            return paper
         }
 
         else if (scissor) {
-            return declaration('Rock', 'Scissor', rock[0])
+            return rock
         }
     }
 
     else if (paper) {
         if (scissor) {
-            return declaration('Scissor', 'Paper', scissor[0])
+            return scissor
         }
     }  
 }
