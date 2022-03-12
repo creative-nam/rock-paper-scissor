@@ -35,7 +35,7 @@ function getRock(player, computer) {
 function getPaper(player, computer) {
     if (isPaper(player) || isPaper(computer)) {
         if (isPaper(player) || isScissor(computer)) {
-            return ((isScissor(player))? 4 : 5)             
+            return ((isPaper(player))? 4 : 5)             
         }
     }    
 }
@@ -60,10 +60,6 @@ function isScissor(param) {
 
 function capitalize(string) {
     return string[0].toUpperCase() + string.slice(1)
-}
-
-function whoPlayedWhat(player = playerSelection, computer = computerSelection) {
-    return `You played ${player}; the computer played ${computer}!`
 }
 
 function  whoWon(player = playerSelection, computer = computerSelection) {
@@ -95,15 +91,3 @@ function  whoWon(player = playerSelection, computer = computerSelection) {
         }
     }  
 }
-
-function play() {
-    return `
-    ${whoPlayedWhat()} 
-    ${whoWon()}
-    --------------End--------------
-
-    (refresh the page to play again)
-    ` 
-}
-
-//console.log(play())
