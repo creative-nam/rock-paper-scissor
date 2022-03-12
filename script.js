@@ -26,18 +26,14 @@ const computerSelection = computerPlay()
 
 function getRock(player, computer) {
     if (isRock(player) || isRock(computer)) {
-        if (isPaper(player) || isScissor(computer)) {
-            return ((isScissor(player))? 4 : 5)            
-        }
+        return ((isRock(player))? 4 : 5)
     }
 }
 
 function getPaper(player, computer) {
     if (isPaper(player) || isPaper(computer)) {
-        if (isPaper(player) || isScissor(computer)) {
-            return ((isPaper(player))? 4 : 5)             
-        }
-    }    
+        return ((isPaper(player))? 4 : 5)          
+    }  
 }
 
 function getScissor(player, computer) {
@@ -46,11 +42,11 @@ function getScissor(player, computer) {
     }
 }
 
-function isPaper(param) {
+function isRock(param) {
     return (param === 1)
 }
 
-function isRock(param) {
+function isPaper(param) {
     return (param === 2)
 }
 
