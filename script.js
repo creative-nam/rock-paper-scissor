@@ -21,8 +21,7 @@ function computerPlay() {
     return move
 }
 
-//const playerSelection =  playerPlay()
-const computerSelection = computerPlay()
+
 
 function getRock(player, computer) {
     if (isRock(player) || isRock(computer)) {
