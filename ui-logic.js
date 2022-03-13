@@ -24,6 +24,30 @@ function updateIcons(player = playerSelection, comp = computerSelection) {
     compIcon.src = `images/${convertMove(comp)}.png`    
 }
 
+function displayMsg(winner = winner, player = playerSelection, comp = computerSelection) {
+    let dialogue = document.querySelector('#dialogue')
+    let h2 = dialogue.querySelector('h2')
+    let para = dialogue.querySelector('p')
+
+    if (!winner || player === comp) {
+        let move = convertMove(player)
+
+        h2.textContent = `It's a tie!`
+        para.textContent = `${capitalize(move)} ties with ${move}`
+
+        return
+    }
+
+    let winnerMove = (winner === 4)? convertMove(player) : convertMove(comp)
+    let loserMove = (winner === 4)? convertMove(comp) : convertMove(player)
+    
+    let msg1 = (winner === 4)? 'You won!' : 'You lost!'
+    let msg2 = `${capitalize(winnerMove)} beats ${loserMove}`
+
+    h2.textContent = msg1
+    para.textContent = msg2
+}
+
 let playerSelection, computerSelection, winner
 
 rockBtn.addEventListener('click', () => { 
@@ -36,6 +60,7 @@ rockBtn.addEventListener('click', () => {
     winner = whoWon()
     updateScore(winner)
     updateIcons()
+    displayMsg(winner)
 })
 
 paperBtn.addEventListener('click', () => {
@@ -48,6 +73,7 @@ paperBtn.addEventListener('click', () => {
     winner = whoWon()
     updateScore(winner)
     updateIcons()
+    displayMsg(winner)
 })
 
 scissorsBtn.addEventListener('click', () => {
@@ -60,4 +86,5 @@ scissorsBtn.addEventListener('click', () => {
     winner = whoWon()
     updateScore(winner)
     updateIcons()
+    displayMsg(winner)
 })
