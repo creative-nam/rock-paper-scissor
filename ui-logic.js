@@ -8,14 +8,25 @@ function convertBtnToCode(btn) {
     return ((move === 'rock')? 1 : (move === 'paper')? 2 : 3)
 }
 
-let playerSelection, computerSelection 
+function updateScore(winner = winner) {
+    if (!winner) return
+    let winnerScore = document.querySelector((winner === 4)? '#playerScore' : 
+        '#computerScore')
+    
+    winnerScore.textContent++
+}
+
+let playerSelection, computerSelection, winner
 
 rockBtn.addEventListener('click', () => { 
     playerSelection = convertBtnToCode(rockBtn)
     computerSelection = computerPlay()
-    
+
     console.log(`winner: ${whoWon(playerSelection, computerSelection)}
         comp: ${computerSelection}`)
+
+    winner = whoWon()
+    updateScore(winner)
 })
 
 paperBtn.addEventListener('click', () => {
@@ -24,12 +35,18 @@ paperBtn.addEventListener('click', () => {
 
     console.log(`winner: ${whoWon(playerSelection, computerSelection)}
     comp: ${computerSelection}`)
+
+    winner = whoWon()
+    updateScore(winner)
 })
 
 scissorsBtn.addEventListener('click', () => {
     playerSelection = convertBtnToCode(scissorsBtn)
     computerSelection = computerPlay()
 
-    console.log(`winner: ${whoWon(convertBtnToCode(scissorsBtn))}
+    console.log(`winner: ${whoWon(playerSelection, computerSelection)}
     comp: ${computerSelection}`)
+
+    winner = whoWon()
+    updateScore(winner)
 })
