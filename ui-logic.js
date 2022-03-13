@@ -16,6 +16,14 @@ function updateScore(winner = winner) {
     winnerScore.textContent++
 }
 
+function updateIcons(player = playerSelection, comp = computerSelection) {
+    let playerIcon = document.querySelector('#playerIcon')
+    let compIcon = document.querySelector('#computerIcon')
+
+    playerIcon.src = `images/${convertMove(player)}.png`
+    compIcon.src = `images/${convertMove(comp)}.png`    
+}
+
 let playerSelection, computerSelection, winner
 
 rockBtn.addEventListener('click', () => { 
@@ -27,6 +35,7 @@ rockBtn.addEventListener('click', () => {
 
     winner = whoWon()
     updateScore(winner)
+    updateIcons()
 })
 
 paperBtn.addEventListener('click', () => {
@@ -38,6 +47,7 @@ paperBtn.addEventListener('click', () => {
 
     winner = whoWon()
     updateScore(winner)
+    updateIcons()
 })
 
 scissorsBtn.addEventListener('click', () => {
@@ -49,4 +59,5 @@ scissorsBtn.addEventListener('click', () => {
 
     winner = whoWon()
     updateScore(winner)
+    updateIcons()
 })

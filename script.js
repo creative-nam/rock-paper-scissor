@@ -11,7 +11,7 @@ function convertMove(move) {
             break
         
         case 3:
-            return 'scissor'
+            return 'scissors'
     }
 }
 
@@ -20,8 +20,6 @@ function computerPlay() {
 
     return move
 }
-
-
 
 function getRock(player, computer) {
     if (isRock(player) || isRock(computer)) {
