@@ -1,6 +1,4 @@
-let rockBtn = document.querySelector('#rockBtn')
-let paperBtn = document.querySelector('#paperBtn')
-let scissorsBtn = document.querySelector('#scissorsBtn')
+let moveBtns = document.querySelectorAll('.moveBox')
 
 function convertBtnToCode(btn) {
     let move = btn.id.slice(0,-3)
@@ -48,10 +46,8 @@ function displayMsg(winner = winner, player = playerSelection, comp = computerSe
     para.textContent = msg2
 }
 
-let playerSelection, computerSelection, winner
-
-rockBtn.addEventListener('click', () => { 
-    playerSelection = convertBtnToCode(rockBtn)
+function play(btn) {
+    playerSelection = convertBtnToCode(btn)
     computerSelection = computerPlay()
 
     console.log(`winner: ${whoWon(playerSelection, computerSelection)}
@@ -61,30 +57,10 @@ rockBtn.addEventListener('click', () => {
     updateScore(winner)
     updateIcons()
     displayMsg(winner)
-})
+}
 
-paperBtn.addEventListener('click', () => {
-    playerSelection = convertBtnToCode(paperBtn)
-    computerSelection = computerPlay()
+let playerSelection, computerSelection, winner
 
-    console.log(`winner: ${whoWon(playerSelection, computerSelection)}
-    comp: ${computerSelection}`)
-
-    winner = whoWon()
-    updateScore(winner)
-    updateIcons()
-    displayMsg(winner)
-})
-
-scissorsBtn.addEventListener('click', () => {
-    playerSelection = convertBtnToCode(scissorsBtn)
-    computerSelection = computerPlay()
-
-    console.log(`winner: ${whoWon(playerSelection, computerSelection)}
-    comp: ${computerSelection}`)
-
-    winner = whoWon()
-    updateScore(winner)
-    updateIcons()
-    displayMsg(winner)
-})
+moveBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => play(e.currentTarget))
+});
