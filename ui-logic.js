@@ -59,6 +59,19 @@ function play(btn) {
     displayMsg(winner)
 }
 
+function isGameOver() {
+    let playerScore = document.querySelector('#playerScore').textContent
+    let compScore = document.querySelector('#computerScore').textContent
+
+    return (Number(playerScore) === 5 || Number(compScore) === 5)
+}
+
+function getWinnerTotal() {
+    let playerScore = document.querySelector('#playerScore').textContent
+
+    return (Number(playerScore) === 5)? 4 : 5
+}
+
 let playerSelection, computerSelection, winner
 
 moveBtns.forEach(btn => {
