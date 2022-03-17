@@ -12,6 +12,8 @@ function updateScore(winner = winner) {
         '#computerScore')
     
     winnerScore.textContent++
+
+    if (isGameOver()) displayGameOverMsg()
 }
 
 function updateIcons(player = playerSelection, comp = computerSelection) {
@@ -54,9 +56,9 @@ function play(btn) {
         comp: ${computerSelection}`)
 
     winner = whoWon()
-    updateScore(winner)
     updateIcons()
     displayMsg(winner)
+    updateScore(winner)
 }
 
 function isGameOver() {
@@ -72,8 +74,26 @@ function getWinnerTotal() {
     return (Number(playerScore) === 5)? 4 : 5
 }
 
+let overlayElem = document.querySelector('#overlay')
+function toggleOverlay() {
+    (overlayElem.style.display === 'block') ? overlayElem.style.display = 'none' : 
+        overlayElem.style.display = 'block'
+}
+
+function displayGameOverMsg() {
+    let gameOverMsg = document.querySelector('#gameOverMsg')
+    let para = gameOverMsg.querySelector('p')
+
+    para.textContent = (getWinnerTotal() === 4)? 'You won!' : 'You lost!'
+    
+    toggleOverlay()
+}
+
 let playerSelection, computerSelection, winner
 
 moveBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => play(e.currentTarget))
+    btn.addEventListener('click', (e) => (isGameOver())? displayGameOverMsg() : 
+        play(e.currentTarget))
 });
+
+overlayElem.addEventListener('click', toggleOverlay)
