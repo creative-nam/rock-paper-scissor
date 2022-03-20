@@ -8,7 +8,7 @@ function convertBtnToCode(btn) {
 
 function updateScore(winner = winner) {
     if (!winner) return
-    let winnerScore = document.querySelector((winner === 4)? '#playerScore' : 
+    let winnerScore = document.querySelector((convertToPlayer(winner) === 'p')? '#playerScore' : 
         '#computerScore')
     
     winnerScore.textContent++
@@ -38,10 +38,10 @@ function displayMsg(winner = winner, player = playerSelection, comp = computerSe
         return
     }
 
-    let winnerMove = (winner === 4)? convertMove(player) : convertMove(comp)
-    let loserMove = (winner === 4)? convertMove(comp) : convertMove(player)
+    let winnerMove = (convertToPlayer(winner) === 'p')? convertMove(player) : convertMove(comp)
+    let loserMove = (convertToPlayer(winner) === 'p')? convertMove(comp) : convertMove(player)
     
-    let msg1 = (winner === 4)? 'You won!' : 'You lost!'
+    let msg1 = (convertToPlayer(winner) === 'p')? 'You won!' : 'You lost!'
     let msg2 = `${capitalize(winnerMove)} beats ${loserMove}`
 
     h2.textContent = msg1
@@ -84,7 +84,7 @@ function displayGameOverMsg() {
     let gameOverMsg = document.querySelector('#gameOverMsg')
     let para = gameOverMsg.querySelector('p')
 
-    para.textContent = (getWinnerTotal() === 4)? 'You won!' : 'You lost!'
+    para.textContent = (convertToPlayer(getWinnerTotal()) === 'p')? 'You won!' : 'You lost!'
     
     toggleOverlay()
 }

@@ -15,6 +15,14 @@ function convertMove(move) {
     }
 }
 
+function convertToPlayer(code) {
+    code = Number(code)
+
+    if (code < 4 || code > 5) return
+
+    return ((code === 4)? 'p' : 'c')
+}
+
 function computerPlay() {
     let move = parseInt(Math.random() * 3) + 1
 
