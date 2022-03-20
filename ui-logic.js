@@ -97,3 +97,28 @@ moveBtns.forEach(btn => {
 });
 
 overlayElem.addEventListener('click', toggleOverlay)
+
+function resetAll() {
+    let scoreSection = document.querySelector('#score')
+    let icons = scoreSection.querySelectorAll('img')
+    let scores = scoreSection.querySelectorAll('span')
+
+    let dialogue = document.querySelector('#dialogue')
+    let initMsgH2 = dialogue.querySelector('h2')
+    let initMsgP = dialogue.querySelector('p')
+
+    icons.forEach(icon => {
+        icon.src = 'images/question-mark.png'
+    });
+
+    scores.forEach(score => {
+        score.textContent = 0
+    });
+
+    initMsgH2.textContent = 'Choose your move'
+    initMsgP.textContent = 'The first to score 5 points wins the game'
+}
+
+let gameOverBtn = document.querySelector('#gameOverBtn')
+
+gameOverBtn.addEventListener('click', resetAll)
