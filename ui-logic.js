@@ -52,9 +52,6 @@ function play(btn) {
     playerSelection = convertBtnToCode(btn)
     computerSelection = computerPlay()
 
-    console.log(`winner: ${whoWon(playerSelection, computerSelection)}
-        comp: ${computerSelection}`)
-
     winner = whoWon()
     updateIcons()
     displayMsg(winner)
@@ -92,8 +89,10 @@ function displayGameOverMsg() {
 let playerSelection, computerSelection, winner
 
 moveBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => (isGameOver())? displayGameOverMsg() : 
-        play(e.currentTarget))
+    btn.addEventListener('click', (e) => {
+        (isGameOver())? displayGameOverMsg() : 
+            play(e.currentTarget)
+    })
 });
 
 overlayElem.addEventListener('click', toggleOverlay)

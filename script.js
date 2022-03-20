@@ -1,5 +1,3 @@
-console.log('Hello! Welcome to the rock -> paper -> scissors game')
-
 function convertMove(move) {
     switch (move) {
         case 1:
@@ -41,9 +39,9 @@ function getPaper(player, computer) {
     }  
 }
 
-function getScissor(player, computer) {
-    if (isScissor(player) || isScissor(computer)) {
-        return ((isScissor(player))? 4 : 5)         
+function getScissors(player, computer) {
+    if (isScissors(player) || isScissors(computer)) {
+        return ((isScissors(player))? 4 : 5)         
     }
 }
 
@@ -55,7 +53,7 @@ function isPaper(param) {
     return (param === 2)
 }
 
-function isScissor(param) {
+function isScissors(param) {
     return (param === 3)
 }
 
@@ -74,21 +72,19 @@ function  whoWon(player = playerSelection, computer = computerSelection) {
 
     paper =  getPaper(player, computer)
     
-    scissor = getScissor(player, computer)
+    scissors = getScissors(player, computer)
     
     if (rock) {
         if (paper) {
             return paper
         }
 
-        else if (scissor) {
+        else if (scissors) {
             return rock
         }
     }
 
-    else if (paper) {
-        if (scissor) {
-            return scissor
-        }
+    else if (paper && scissors) {
+        return scissors
     }  
 }
